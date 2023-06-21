@@ -1,0 +1,6 @@
+target("sandbox")
+    set_kind("binary")
+    set_basename("sandbox")
+    add_files("./**.cpp")
+    add_includedirs("../")
+    add_deps("wasp-lang")

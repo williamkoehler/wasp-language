@@ -1,0 +1,1094 @@
+initial:
+  "\0": eof
+  " ": whitespace
+  "\r": whitespace
+  "\n": whitespace
+  "\"": string_literal
+  "'": string_literal
+  ".": dot
+  ";": semicolon
+  ":": colon
+  ",": comma
+  "_": underscore
+  "(": l_parentheses
+  ")": r_parentheses
+  "{": l_curlybracket
+  "}": r_curlybracket
+  "[": l_bracket
+  "]": r_bracket
+  "<": l_angled_bracket
+  ">": r_angled_bracket
+  "=": equals
+  "+": plus
+  "-": minus
+  "*": asterisk
+  "/": slash
+  "%": percent
+  "!": exclamation_mark
+  "~": tilde
+  "&": ampersand
+  "|": pipe
+  "^": caret
+  "#": hash
+  "?": question_mark
+  "$": dollar
+  "0": integer_special
+  "1-9": integer
+  "a": identifier
+  "b": letter_b
+  "c": letter_c
+  "d": letter_d
+  "e": letter_e
+  "f": letter_f
+  "g": identifier
+  "h": identifier
+  "i": letter_i
+  "j": identifier
+  "k": identifier
+  "l": identifier
+  "m": identifier
+  "n": letter_n
+  "o": letter_o
+  "p": identifier
+  "q": identifier
+  "r": letter_r
+  "s": letter_s
+  "t": letter_t
+  "u": identifier
+  "v": letter_v
+  "w": letter_w
+  "x": identifier
+  "y": identifier
+  "z": identifier
+  "A-Z": identifier
+
+dot:
+  is_final: true
+  token: WASP_DOT_TOKEN
+
+semicolon:
+  is_final: true
+  token: WASP_SEMICOLON_TOKEN
+
+colon:
+  is_final: true
+  token: WASP_COLON_TOKEN
+
+comma:
+  is_final: true
+  token: WASP_COMMA_TOKEN
+
+underscore:
+  is_final: true
+  token: WASP_UNDERSCORE_TOKEN
+
+l_parentheses:
+  is_final: true
+  token: WASP_L_PARENTHESES_TOKEN
+
+r_parentheses:
+  is_final: true
+  token: WASP_R_PARENTHESES_TOKEN
+
+l_curlybracket:
+  is_final: true
+  token: WASP_L_CURLY_BRACKET_TOKEN
+
+r_curlybracket:
+  is_final: true
+  token: WASP_R_CURLY_BRACKET_TOKEN
+
+l_bracket:
+  is_final: true
+  token: WASP_L_BRACKET_TOKEN
+
+r_bracket:
+  is_final: true
+  token: WASP_R_BRACKET_TOKEN
+
+l_angled_bracket:
+  is_final: true
+  can_continue: true
+  token: WASP_L_ANGLED_BRACKET_TOKEN
+  "<": double_l_angled_bracket
+  "=": l_angled_bracket_equals
+
+r_angled_bracket:
+  is_final: true
+  can_continue: true
+  token: WASP_R_ANGLED_BRACKET_TOKEN
+  ">": double_r_angled_bracket
+  "=": r_angled_bracket_equals
+
+equals:
+  is_final: true
+  can_continue: true
+  token: WASP_EQUALS_TOKEN
+  "=": double_equals
+
+double_equals:
+  is_final: true
+  token: WASP_DOUBLE_EQUALS_TOKEN
+
+plus:
+  is_final: true
+  can_continue: true
+  token: WASP_PLUS_TOKEN
+  "=": plus_equals
+  "+": double_plus
+
+plus_equals:
+  is_final: true
+  token: WASP_PLUS_EQUALS_TOKEN
+
+double_plus:
+  is_final: true
+  token: WASP_DOUBLE_PLUS_TOKEN
+
+minus:
+  is_final: true
+  can_continue: true
+  token: WASP_MINUS_TOKEN
+  "=": minus_equals # -=
+  "-": double_minus
+  ">": arrow # ->
+
+minus_equals:
+  is_final: true
+  token: WASP_DOUBLE_MINUS_TOKEN
+
+double_minus:
+  is_final: true
+  token: WASP_DECREMENT_TOKEN
+
+asterisk:
+  is_final: true
+  can_continue: true
+  token: WASP_ASTERISK_TOKEN
+  "=": asterisk_equals
+
+asterisk_equals:
+  is_final: true
+  token: WASP_ASTERISK_EQUALS_TOKEN
+
+slash:
+  is_final: true
+  can_continue: true
+  token: WASP_SLASH_TOKEN
+  "=": slash_equals
+  "*": multiline_comment
+
+slash_equals:
+  is_final: true
+  token: WASP_SLASH_EQUALS_TOKEN
+
+percent:
+  is_final: true
+  can_continue: true
+  token: WASP_PERCENT_TOKEN
+  "=": percent_equals
+
+percent_equals:
+  is_final: true
+  token: WASP_PERCENT_EQUALS_TOKEN
+
+exclamation_mark:
+  is_final: true
+  can_continue: true
+  token: WASP_EXCLAMATION_MARK_TOKEN
+  "=": exclamation_mark_equals
+
+exclamation_mark_equals:
+  is_final: true
+  token: WASP_EXCLAMATION_MARK_EQUALS_TOKEN
+
+l_angled_bracket_equals:
+  is_final: true
+  token: WASP_L_ANGLED_BRACKET_EQUALS_TOKEN
+
+double_l_angled_bracket:
+  is_final: true
+  token: WASP_DOUBLE_L_ANGLED_BRACKET_TOKEN
+
+r_angled_bracket_equals:
+  is_final: true
+  token: WASP_R_ANGLED_BRACKET_EQUALS_TOKEN
+
+double_r_angled_bracket:
+  is_final: true
+  token: WASP_DOUBLE_R_ANGLED_BRACKET_TOKEN
+
+tilde:
+  is_final: true
+  token: WASP_TILDE_TOKEN
+
+ampersand:
+  is_final: true
+  token: WASP_AMPERSAND_TOKEN
+  "&": double_ampersand
+
+double_ampersand:
+  is_final: true
+  token: WASP_DOUBLE_AMPERSAND_TOKEN
+
+pipe:
+  is_final: true
+  can_continue: true
+  token: WASP_PIPE_TOKEN
+  "|": double_pipe
+
+double_pipe:
+  is_final: true
+  token: WASP_DOUBLE_PIPE_TOKEN
+
+caret:
+  is_final: true
+  can_continue: true
+  token: WASP_CARET_TOKEN
+  "^": double_caret
+
+double_caret:
+  is_final: true
+  token: WASP_DOUBLE_CARET_TOKEN
+
+hash:
+  is_final: true
+  token: WASP_HASH_TOKEN
+
+question_mark:
+  is_final: true
+  can_continue: true
+  token: WASP_QUESTION_MARK_TOKEN
+  "?": double_question_mark
+  "=": question_mark_equals
+
+question_mark_equals:
+  is_final: true
+  token: WASP_QUESTION_MARK_ASSIGN_TOKEN
+
+double_question_mark:
+  is_final: true
+  token: WASP_DOUBLE_QUESTION_MARK_TOKEN
+
+dollar:
+  is_final: true
+  token: WASP_DOLLAR_TOKEN
+
+arrow:
+  is_final: true
+  token: WASP_ARROW_TOKEN
+
+identifier:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+null_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_NULL_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+  
+true_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_TRUE_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+  
+false_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_FALSE_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+new_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_NEW_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+struct_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_STRUCT_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+ctor_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_CTOR_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+dtor_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_DTOR_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+function_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_FUNCTION_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+operator_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_OPERATOR_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+if_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_IF_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+else_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_ELSE_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+while_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_WHILE_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+do_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_DO_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+for_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_FOR_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+break_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_BREAK_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+continue_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_CONTINUE_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+return_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_RETURN_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+const_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_CONST_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+void_keyword:
+  is_final: true
+  can_continue: true
+  token: WASP_VOID_KEYWORD_TOKEN
+  "a-z": identifier
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_b:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/r": identifier
+  "r": word_br
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_br:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/e": identifier
+  "e": word_bre
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_bre:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/a": identifier
+  "a": word_brea
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_brea:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/k": identifier
+  "k": break_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_c:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/ot": identifier
+  "o": word_co
+  "t": word_ct
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_co:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/n": identifier
+  "n": word_con
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_con:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/st": identifier
+  "s": word_cons
+  "t": word_cont
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_cons:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/t": identifier
+  "t": const_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_cont:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/i": identifier
+  "i": word_conti
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_conti:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/n": identifier
+  "n": word_contin
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_contin:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/u": identifier
+  "u": word_continu
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_continu:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/e": identifier
+  "e": continue_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_ct:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/o": identifier
+  "o": word_cto
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_cto:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/r": identifier
+  "r": ctor_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_d:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/ot": identifier
+  "o": do_keyword
+  "t": word_dt
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_dt:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/o": identifier
+  "o": word_dto
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_dto:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/r": identifier
+  "r": dtor_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_e:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/l": identifier
+  "l": word_el
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_el:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/s": identifier
+  "s": word_els
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_els:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/e": identifier
+  "e": else_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_f:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/aou": identifier
+  "a": word_fa
+  "o": word_fo
+  "u": word_fu
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_fa:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/l": identifier
+  "l": word_fal
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_fal:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/s": identifier
+  "s": word_fals
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_fals:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/e": identifier
+  "e": false_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_fo:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/r": identifier
+  "r": for_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_fu:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/n": identifier
+  "n": word_fun
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_fun:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/c": identifier
+  "c": function_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_i:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/f": identifier
+  "f": if_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_n:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/eu": identifier
+  "e": word_ne
+  "u": word_nu
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_ne:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/w": identifier
+  "w": new_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_nu:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/l": identifier
+  "l": word_nul
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_nul:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/l": identifier
+  "l": null_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_o:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/p": identifier
+  "p": word_op
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+word_op:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/e": identifier
+  "e": word_ope
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+word_ope:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/r": identifier
+  "r": word_oper
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+word_oper:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/a": identifier
+  "a": word_opera
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+word_opera:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/t": identifier
+  "t": word_operat
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+word_operat:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/o": identifier
+  "o": word_operato
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+word_operato:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/r": identifier
+  "r": operator_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_r:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/e": identifier
+  "e": word_re
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_re:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/t": identifier
+  "t": word_ret
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_ret:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/u": identifier
+  "u": word_retu
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_retu:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/r": identifier
+  "r": word_retur
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_retur:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/n": identifier
+  "n": return_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_s:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/t": identifier
+  "t": word_st
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_st:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/r": identifier
+  "r": word_str
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_str:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/u": identifier
+  "u": word_stru
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_stru:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/c": identifier
+  "c": word_struc
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_struc:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/t": identifier
+  "t": struct_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_t:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/r": identifier
+  "r": word_tr
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_tr:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/u": identifier
+  "u": word_tru
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_tru:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/e": identifier
+  "e": true_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_v:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/o": identifier
+  "o": word_vo
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_vo:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/i": identifier
+  "i": word_voi
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_voi:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/d": identifier
+  "d": void_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+letter_w:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/h": identifier
+  "h": word_wh
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_wh:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/i": identifier
+  "i": word_whi
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_whi:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/l": identifier
+  "l": word_whil
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+word_whil:
+  is_final: true
+  can_continue: true
+  token: WASP_IDENTIFIER_TOKEN
+  "a-z/e": identifier
+  "e": while_keyword
+  "A-Z": identifier
+  "0-9": identifier
+  "_": identifier
+
+# Whitespace
+whitespace:
+  is_final: true
+  can_continue: true
+  token: WASP_WHITESPACE_SPECIAL_TOKEN
+  " ": whitespace
+  "\n": whitespace
+  "\r": whitespace
+
+# Multiline Comment
+multiline_comment:
+  default: multiline_comment
+  "*": multiline_comment_2
+
+multiline_comment_2:
+  default: multiline_comment
+  "/": multiline_comment_3
+
+multiline_comment_3:
+  is_final: true
+  token: WASP_WHITESPACE_SPECIAL_TOKEN
+
+# Singleline Comment
+singleline_comment:
+  is_final: true
+  can_continue: true
+  token: WASP_WHITESPACE_SPECIAL_TOKEN
+  default: singleline_comment
+  "\r": null
+  "\n": null
+
+# Integer and Number
+integer_special:
+  "0-9": integer_oct
+  ".": number
+  "b": integer_bin
+  "x": integer_hex
+integer:
+  is_final: true
+  can_continue: true
+  token: WASP_INTEGER_TOKEN
+  "0-9": integer
+  ".": number
+integer_bin:
+  is_final: true
+  can_continue: true
+  token: WASP_BIN_INTEGER_SPECIAL_TOKEN
+  "0-1": integer_bin
+integer_oct:
+  is_final: true
+  can_continue: true
+  token: WASP_OCT_INTEGER_SPECIAL_TOKEN
+  "0-7": integer_oct
+integer_hex:
+  is_final: true
+  can_continue: true
+  token: WASP_HEX_INTEGER_SPECIAL_TOKEN
+  "0-9": integer_hex
+  "a-f": integer_hex
+
+number:
+  is_final: true
+  can_continue: true
+  token: WASP_NUMBER_TOKEN
+  "0-9": number
+
+# String
+string_literal:
+  default: string_literal
+  "\"": string
+string:
+  is_final: true
+  token: WASP_STRING_LITERAL_TOKEN
+
+# End of File
+eof:
+  is_final: true
+  token: WASP_EOF_TOKEN

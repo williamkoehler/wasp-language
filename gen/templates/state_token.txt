@@ -1,0 +1,8 @@
+const wasp_token_type wasp_state_token[] = {
+{% for  state in states -%}
+    {% if state.token is not none -%}
+        {{ state.token }}
+    {%- else -%}
+        WASP_UNKNOWN_TOKEN
+    {%- endif %}{{ ', ' }}
+{% endfor %}};

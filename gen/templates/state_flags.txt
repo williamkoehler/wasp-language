@@ -1,0 +1,5 @@
+const wasp_token_type wasp_state_flags[] = { // (Continue parsing) (Has valid token) ()
+{% for  state in states -%}
+    (wasp_token_type)(({{ '0x2' if not state.is_final or state.can_continue else '0x0' }}) | ({{ '0x1' if state.is_final and state.token is not none else '0x0' }})){{ ', ' }} // {{ state.name }}
+{% endfor %}
+};

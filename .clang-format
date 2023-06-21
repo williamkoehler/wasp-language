@@ -1,0 +1,23 @@
+---
+BasedOnStyle: Microsoft
+NamespaceIndentation: All
+FixNamespaceComments: false
+PointerAlignment: Left
+IndentWidth: 4
+AlwaysBreakTemplateDeclarations: true
+
+BraceWrapping:
+    AfterCaseLabel: true
+    AfterClass: true
+    AfterEnum: true
+    AfterFunction: true
+    AfterNamespace: true
+    AfterStruct: true
+    AfterUnion: true
+    AfterExternBlock: true
+    BeforeCatch: true
+    BeforeElse: true
+    BeforeLambdaBody: true
+    BeforeWhile: true
+
+...

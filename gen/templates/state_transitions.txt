@@ -1,0 +1,7 @@
+uint8_t wasp_state_transitions[] = {
+{% for  state in states -%}
+{% for  transition in state.transitions -%}
+    {{ '{}'.format(transition) }}{{ ',' }}
+{%- endfor %}
+{% endfor %}
+};
